@@ -2,8 +2,8 @@
 //SE 3316 Lab1
 
 //array of pokemon data
-var pokeNumbers = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", 
-                    "011", "012", "013", "014", "015", "016", "017", "018", "019", "020"];
+var pokeNumbers = [" 001", " 002", " 003", " 004", " 005", " 006", " 007", " 008", " 009", " 010", 
+                    " 011", " 012", " 013", " 014", " 015", " 016", " 017", " 018", " 019", " 020"];
 var pokeNames = [" Bulbasaur", " Ivysaur", " Venusaur", " Charmander", " Charmeleon", " Charizard", " Squirtle", " Wartortle", " Blastoise", " Caterpie", 
                     " Metapod", " Butterfree", " Weedle", " Kakuna", " Beedrill", " Pidgey", " Pidgeotto", " Pidgeot", " Rattata", " Raticate"];
 var pokemon = []
@@ -81,11 +81,15 @@ function searchDex(query, varType){
     } else {
         for (var i in pokeNames){
             if (pokeNames[i].indexOf(query) > -1) {
-                //if (hitCounter == 5) return hits;
                 hits.push(i);
                 hitCounter++;
             }
         }
     }
-    alert("debug/search return  "+hitCounter+" hits in positions  "+hits);
+    var printouts = [];
+    for (var i in hits){
+        printouts.push(pokemon[hits[i]]);
+    }
+    //alert("debug/search return  "+hitCounter+" hits in positions  "+hits);
+    alert("Is this what you're looking for?\n\n"+ printouts);
 }
