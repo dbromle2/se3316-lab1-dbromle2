@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>SE 3316 Lab 1</title>
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Lab1">
+<meta name="author" content="dbromle2">
 <link rel="stylesheet" href="">
+<script type='text/javascript' src='lab1.js'></script>
 </head>
 <body>
 <!-- Place your content here -->
 <h1>SE 3316 Lab 1 - Pokédex</h1>
 <div>
-    <div>Search
-        <input id="searchBoxNumber" type="number" placeholder="by number" min="1" max="20">
-        <input id="searchboxName" type="text" placeholder="by name">
+    <div id="searchInfo">
+        <button onclick = "searchNum(searchboxNumber)">Search by number:</button>
+        <input id="searchboxNumber" type="number" min="1" max="20">
+        <button onclick = "searchName(searchboxName)">Search by name:</button>
+        <input id="searchboxName" type="text">
+        <!--<input id="enterBtn" type="submit"> to be hidden by css if I can make functional-->
     </div>
     <!--Pokemon <ul> below-->
     <ul>
