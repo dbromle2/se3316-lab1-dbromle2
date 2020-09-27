@@ -1,13 +1,22 @@
 //dbromle2
 //SE 3316 Lab1
 
+//array of pokemon data
+var pokeNumbers = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", 
+                    "011", "012", "013", "014", "015", "016", "017", "018", "019", "020"];
+var pokeNames = [" Bulbasaur", " Ivysaur", " Venusaur", " Charmander", " Charmeleon", " Charizard", " Squirtle", " Wartortle", " Blastoise", " Caterpie", 
+                    " Metapod", " Butterfree", " Weedle", " Kakuna", " Beedrill", " Pidgey", " Pidgeotto", " Pidgeot", " Rattata", " Raticate"];
+var pokemon = []
+for (i=0; i<20; i++){
+    pokemon[i] = pokeNumbers[i]+pokeNames[i];
+}
+
 function searchNum(id){
     //declarations
     var numberIn = id.value;
     var num = /^[0-9]*$/; //objective C. only numbers
-    var isNumberValid = 1;
 
-    var validate = num.exec(numberIn); //validate the number (no +/- symbols)
+    var newNumberIn = num.exec(numberIn); //validate the number (no +/- symbols)
 
     var isNumSub21 = 1;
     if (numberIn > 0 & numberIn < 21){ //objective C. only numbers 1-20 are valid inputs
@@ -18,8 +27,9 @@ function searchNum(id){
     }
 
     if (isNumSub21){
-        //search code goes here
-        alert("Is this what you're looking for?");
+        //call the function to search the array for any matching entries
+        searchDex(newNumberIn,1);
+        alert("Is this what you're looking for?\n\n"+newNumberIn);
     }
     else alert("Invalid input");
 }
@@ -31,6 +41,7 @@ function searchName(id){
 
     var validate = alpha.exec(stringIn); //validate the string
     var isStringValid = Boolean(validate);
+    var newStringIn = validate;
 
     var isStringSub21 = 1;
         
@@ -44,8 +55,37 @@ function searchName(id){
     }
 
     if (isStringValid && isStringSub21) {
-        //search code goes here
-        alert("Is this what you're looking for?");
+        //call the function to search the array for any matching entries
+        searchDex(newStringIn,0);
+        // var printouts = [];
+        // for (var i in hits){
+        //     printouts.push(pokemon[hits[i]]);
+        // }
+        alert("Is this what you're looking for?\n\n"+ hits);
     }
     else alert("Invalid input");
+}
+
+function searchDex(query, varType){
+    //declarations
+    var hitCounter = 0;
+    var hits = [];
+
+    //if varType is high, search by pokedex number
+    if (varType){
+    //     for (i=0; i<5; i++){
+    //         hits[i] = pokeNumbers.filter(aaa);
+    //         hitCounter++;
+    //     }
+    //if varType is low, search by pokedex name
+    } else {
+        for (var i in pokeNames){
+            if (pokeNames[i].indexOf(query) > -1) {
+                //if (hitCounter == 5) return hits;
+                hits.push(i);
+                hitCounter++;
+            }
+        }
+    }
+    alert("debug/search return  "+hitCounter+" hits in positions  "+hits);
 }
