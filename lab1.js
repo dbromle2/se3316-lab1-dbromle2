@@ -11,6 +11,7 @@ for (i=0; i<20; i++){
     pokemon[i] = pokeNumbers[i]+pokeNames[i];
 }
 
+//Function to search the pokedex by pokemon number using the number input by the user
 function searchNum(id){
     //declarations
     var numberIn = id.value;
@@ -29,10 +30,11 @@ function searchNum(id){
     if (isNumSub21){
         //call the function to search the array for any matching entries
         searchDex(newNumberIn,1);
-        alert("Is this what you're looking for?\n\n"+newNumberIn);
     }
     else alert("Invalid input");
 }
+
+//Function to search the pokedex by pokemon name using the string input by the user
 function searchName(id){
     //declarations
     var stringIn = id.value;
@@ -57,11 +59,6 @@ function searchName(id){
     if (isStringValid && isStringSub21) {
         //call the function to search the array for any matching entries
         searchDex(newStringIn,0);
-        // var printouts = [];
-        // for (var i in hits){
-        //     printouts.push(pokemon[hits[i]]);
-        // }
-        alert("Is this what you're looking for?\n\n"+ hits);
     }
     else alert("Invalid input");
 }
@@ -70,26 +67,34 @@ function searchDex(query, varType){
     //declarations
     var hitCounter = 0;
     var hits = [];
+    var printouts = [];
 
     //if varType is high, search by pokedex number
     if (varType){
-    //     for (i=0; i<5; i++){
-    //         hits[i] = pokeNumbers.filter(aaa);
-    //         hitCounter++;
-    //     }
+        for (var i in pokeNumbers){
+            if (hitCounter <5){
+                if (pokeNumbers[i].indexOf(query) > -1){
+                    hits.push(i);
+                    hitCounter++;
+                }
+            }
+        }
+
     //if varType is low, search by pokedex name
     } else {
         for (var i in pokeNames){
-            if (pokeNames[i].indexOf(query) > -1) {
-                hits.push(i);
-                hitCounter++;
+            if (hitCounter < 5){
+                if (pokeNames[i].indexOf(query) > -1){
+                    hits.push(i);
+                    hitCounter++;
+                }
             }
         }
     }
-    var printouts = [];
+    
+    //translate the hits array of indices into the printout num+name 
     for (var i in hits){
         printouts.push(pokemon[hits[i]]);
     }
-    //alert("debug/search return  "+hitCounter+" hits in positions  "+hits);
     alert("Is this what you're looking for?\n\n"+ printouts);
 }
