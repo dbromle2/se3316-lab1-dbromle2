@@ -36,7 +36,6 @@ ul{
     list-style: none;
     flex-wrap: wrap;
     display: flex;
-    width:;
     height: auto;
 }
 
@@ -66,6 +65,7 @@ img{
 }
 
 h2, h3{
+    padding: 6px;
     color: #5d5d5d;
 }
 
