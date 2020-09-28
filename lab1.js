@@ -24,7 +24,6 @@ function searchNum(id){
         isNumSub21 = 1;
     } else {
         isNumSub21 = 0;
-        alert("Invalid input");
     }
 
     if (isNumSub21){
@@ -93,8 +92,10 @@ function searchDex(query, varType){
     }
     
     //translate the hits array of indices into the printout num+name 
-    for (var i in hits){
-        printouts.push(pokemon[hits[i]]);
-    }
-    alert("Is this what you're looking for?\n\n"+ printouts);
+    if (hitCounter > 0){
+        for (var i in hits){
+            printouts.push(pokemon[hits[i]]);
+        }
+        alert("Is this what you're looking for?\n\n"+ printouts);
+    } else alert("No matches found!");
 }
