@@ -2,14 +2,69 @@
 //SE 3316 Lab1
 
 //array of pokemon data
+function dexEntry(Numbers, Names, Img, Desc, Type1, Type2){
+    this.Numbers = Numbers;
+    this.Names = Names;
+    this.Img = Img;
+    this.Desc = Desc;
+    this.Type1 = Type1;
+    this.Type2 = Type2;
+}
+var pokeDex = [];
+pokeDex.push(new dexEntry("001", "Bulbasaur", "1.png", "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.", "Grass", "Poison"));
+pokeDex.push(new dexEntry("002", "Ivysaur", "2.png", "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.", "Grass", "Poison"));
+pokeDex.push(new dexEntry("003", "Venusaur", "3.png", "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.", "Grass", "Poison"));
+pokeDex.push(new dexEntry("004", "Charmand", "4.png", "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.", "Fire", ""));
+pokeDex.push(new dexEntry("005", "Charmeleon", "5.png", "It has a barbaric nature. In battle, it whips its fiery tail around and slashes away with sharp claws.", "Fire", ""));
+pokeDex.push(new dexEntry("006", "Charizard", "6.png", "It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.", "Fire", ""));
+pokeDex.push(new dexEntry("007", "Squirtle", "7.png", "When it retracts its long neck into its shell, it squirts out water with vigorous force.", "Water", ""));
+pokeDex.push(new dexEntry("008", "Wartortle", "8.png", "It is recognized as a symbol of longevity. If its shell has algae on it, that Wartortle is very old.", "Water", ""));
+pokeDex.push(new dexEntry("009", "Blastoise", "9.png", "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.", "Water", ""));
+pokeDex.push(new dexEntry("010", "Caterpie", "10.png", "For protection, it releases a horrible stench from the antenna on its head to drive away enemies.", "Bug", ""));
+pokeDex.push(new dexEntry("01", "Metapod", "11.png", "It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack.", "Bug", ""));
+pokeDex.push(new dexEntry("01", "Butterfree", "12.png", "In battle, it flaps its wings at great speed to release highly toxic dust into the air.", "Bug", "Flying"));
+pokeDex.push(new dexEntry("01", "Weedle", "13.png", "Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("01", "Kakuna", "14.png", "Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("01", "Beedrill", "15.png", "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("01", "Pidgey", "16.png", "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("01", "Pidgeotto", "17.png", "This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("01", "Pidgeot", "18.png", "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("01", "Rattata", "19.png", "Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.", "Normal", ""));
+pokeDex.push(new dexEntry("020", "Raticate", "20.png", "Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.", "Normal", ""));
+
+
+
 var pokeNumbers = [" 001", " 002", " 003", " 004", " 005", " 006", " 007", " 008", " 009", " 010", 
                     " 011", " 012", " 013", " 014", " 015", " 016", " 017", " 018", " 019", " 020"];
 var pokeNames = [" Bulbasaur", " Ivysaur", " Venusaur", " Charmander", " Charmeleon", " Charizard", " Squirtle", " Wartortle", " Blastoise", " Caterpie", 
                     " Metapod", " Butterfree", " Weedle", " Kakuna", " Beedrill", " Pidgey", " Pidgeotto", " Pidgeot", " Rattata", " Raticate"];
-var pokemon = []
+var pokeImg = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png",
+                "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png", "18.png", "19.png", "20.png"];
+var pokemon = [];
 for (i=0; i<20; i++){
-    pokemon[i] = pokeNumbers[i]+pokeNames[i];
+    pokemon[i] = pokeNumbers[i]+pokeNames[i]+pokeImg[i];
 }
+
+// function pageInit(){
+//     var uList = document.getElementById("pokeList");
+//     for (i in pokemon){
+//         var lItem = document.createElement("li");
+//         var lNum = document.createElement("h2");
+//         lNum.innerHTML = ("#"+pokeDex[i].Numbers);
+//         var lName = document.createElement("h2");
+//         lName.innerHTML = pokeDex[i].Names;
+//         var lImg = document.createElement("img");
+//         lImg.setAttribute("src", pokeDex[i].Img);
+//         var lDesc = document.createElement("p");
+//         lDesc.innerHTML = pokeDex[i].Desc;
+
+//         lItem.appendChild(lNum);
+//         lItem.appendChild(lName);
+//         lItem.appendChild(lImg);
+//         lItem.appendChild(lDesc);
+//         uList.appendChild(lItem);
+//     }
+// }
 
 //Function to search the pokedex by pokemon number using the number input by the user
 function searchNum(id){

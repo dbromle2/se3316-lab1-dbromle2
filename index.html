@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="lab1.css">
 <script type='text/javascript' src='lab1.js'></script>
 </head>
-<body>
+<body onLoad="pageInit()">
 <!-- Place your content here -->
 <div>
     <h1>SE 3316 Lab 1 - Pokédex</h1>
@@ -19,8 +19,14 @@
         <input id="searchboxName" type="text">
         <!--<input id="enterBtn" type="submit"> to be hidden by css if I can make functional-->
     </div>
+    <!--Lab 2 dynamic search results below-->
+    <div>
+        <ul id="searchResults">
+            <!--see lab1.js-->
+        </ul>
+    </div>
     <!--Pokemon <ul> below-->
-    <ul>
+    <ul id="pokeList">
         <li>
             <h2>#001 Bulbasaur</h2>
             <img src="1.png">
