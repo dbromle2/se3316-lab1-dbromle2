@@ -1,7 +1,7 @@
 //dbromle2
 //SE 3316 Lab1
 
-//array of pokemon data
+//Each Pokedex Entry is an object for easy DOM manipulation
 function dexEntry(Numbers, Names, Img, Desc, Type1, Type2){
     this.Numbers = Numbers;
     this.Names = Names;
@@ -14,7 +14,7 @@ var pokeDex = [];
 pokeDex.push(new dexEntry("001", "Bulbasaur", "1.png", "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.", "Grass", "Poison"));
 pokeDex.push(new dexEntry("002", "Ivysaur", "2.png", "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.", "Grass", "Poison"));
 pokeDex.push(new dexEntry("003", "Venusaur", "3.png", "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.", "Grass", "Poison"));
-pokeDex.push(new dexEntry("004", "Charmand", "4.png", "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.", "Fire", ""));
+pokeDex.push(new dexEntry("004", "Charmander", "4.png", "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.", "Fire", ""));
 pokeDex.push(new dexEntry("005", "Charmeleon", "5.png", "It has a barbaric nature. In battle, it whips its fiery tail around and slashes away with sharp claws.", "Fire", ""));
 pokeDex.push(new dexEntry("006", "Charizard", "6.png", "It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.", "Fire", ""));
 pokeDex.push(new dexEntry("007", "Squirtle", "7.png", "When it retracts its long neck into its shell, it squirts out water with vigorous force.", "Water", ""));
@@ -33,11 +33,11 @@ pokeDex.push(new dexEntry("01", "Rattata", "19.png", "Will chew on anything with
 pokeDex.push(new dexEntry("020", "Raticate", "20.png", "Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.", "Normal", ""));
 
 
-
+//Info arrays for the search functions
 var pokeNumbers = [" 001", " 002", " 003", " 004", " 005", " 006", " 007", " 008", " 009", " 010", 
                     " 011", " 012", " 013", " 014", " 015", " 016", " 017", " 018", " 019", " 020"];
-var pokeNames = [" Bulbasaur", " Ivysaur", " Venusaur", " Charmander", " Charmeleon", " Charizard", " Squirtle", " Wartortle", " Blastoise", " Caterpie", 
-                    " Metapod", " Butterfree", " Weedle", " Kakuna", " Beedrill", " Pidgey", " Pidgeotto", " Pidgeot", " Rattata", " Raticate"];
+var pokeNames = [" bulbasaur", " ivysaur", " venusaur", " charmander", " charmeleon", " charizard", " squirtle", " wartortle", " blastoise", " caterpie", 
+                    " metapod", " butterfree", " weedle", " kakuna", " beedrill", " pidgey", " pidgeotto", " pidgeot", " rattata", " raticate"];
 
 var pokemon = [];
 for (i=0; i<20; i++){
@@ -78,6 +78,7 @@ function pageInit(){
         lTable.appendChild(lTableTr);
         lItem.appendChild(lTable);
 
+        //Final step add the newly made <li> to the existing <ul>
         uList.appendChild(lItem);
     }
 }
@@ -161,12 +162,62 @@ function searchDex(query, varType){
             }
         }
     }
-    
+    /*Legacy search printout from lab1
     //translate the hits array of indices into the printout num+name 
+    // if (hitCounter > 0){
+    //     for (var i in hits){
+    //         printouts.push(pokemon[hits[i]]);
+    //     }
+    //     alert("Is this what you're looking for?\n\n"+ printouts);
+    // } else alert("No matches found!");
+    */
+
+    //populate the search results list
+    var pFlavour = document.getElementById("lab2");
+    var searchList = document.getElementById("searchResults");
+    var br = document.createElement("br");
+
+
     if (hitCounter > 0){
-        for (var i in hits){
-            printouts.push(pokemon[hits[i]]);
+        pFlavour.innerHTML = "Is this what you're looking for?\n\n";
+        pFlavour.appendChild(br);
+        //Reusing the code for the onLoad pageInit() function
+        for (i in hits){
+            //Allocating all information from the pokeDex dexEntry objects
+            var searchLItem = document.createElement("li");
+            var searchLNum = document.createElement("h2");
+            searchLNum.innerHTML = ("#"+pokeDex[hits[i]].Numbers);
+            var searchLName = document.createElement("h2");
+            searchLName.innerHTML = pokeDex[hits[i]].Names;
+            var searchLImg = document.createElement("img");
+            searchLImg.setAttribute("src", pokeDex[hits[i]].Img);
+            var searchLDesc = document.createElement("p");
+            searchLDesc.innerHTML = pokeDex[hits[i]].Desc;
+            var searchLTable = document.createElement("table");
+            var searchLTableTr = document.createElement("tr");
+            var searchLTableTd1 = document.createElement("td");
+            searchLTableTd1.className = pokeDex[hits[i]].Type1;
+            searchLTableTd1.innerHTML = pokeDex[hits[i]].Type1;
+            var searchLTableTd2 = document.createElement("td");
+            searchLTableTd2.className = pokeDex[hits[i]].Type2;
+            searchLTableTd2.innerHTML = pokeDex[hits[i]].Type2;
+
+            //Appending all information to the HTML
+            searchLItem.appendChild(searchLNum);
+            searchLItem.appendChild(searchLName);
+            searchLItem.appendChild(searchLImg);
+            searchLItem.appendChild(searchLDesc);
+            searchLTableTr.appendChild(searchLTableTd1);
+            searchLTableTr.appendChild(searchLTableTd2);
+            searchLTable.appendChild(searchLTableTr);
+            searchLItem.appendChild(searchLTable);
+
+            //Final step add the newly made <li> to the existing <ul>
+            searchList.appendChild(searchLItem);
         }
-        alert("Is this what you're looking for?\n\n"+ printouts);
-    } else alert("No matches found!");
+    //if no matches, alert the user
+    } else {
+        pFlavour.innerHTML = "No matches found!";
+        pFlavour.appendChild(br);
+    }
 }
