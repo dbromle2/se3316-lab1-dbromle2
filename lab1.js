@@ -177,6 +177,9 @@ function searchDex(query, varType){
     var searchList = document.getElementById("searchResults");
     var br = document.createElement("br");
 
+   while(searchList.hasChildNodes()){
+       searchList.removeChild(searchList.firstChild);
+   }
 
     if (hitCounter > 0){
         pFlavour.innerHTML = "Is this what you're looking for?\n\n";
