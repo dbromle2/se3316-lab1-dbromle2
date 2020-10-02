@@ -14,20 +14,20 @@
     <h1>SE 3316 Lab 1 - Pokédex</h1>
     <div class="searchInfo">
         <button onclick = "searchNum(searchboxNumber)">Search by number:</button>
-        <input id="searchboxNumber" type="number" min="1" max="20" oninput="searchNum(searchboxNum)">
+        <input id="searchboxNumber" type="number" min="1" max="20" oninput="searchNum(searchboxNumber)">
         <button onclick = "searchName(searchboxName)">Search by name:</button>
         <input id="searchboxName" type="text" oninput="searchName(searchboxName)">
-        <!--<input id="enterBtn" type="submit"> to be hidden by css if I can make functional-->
     </div>
     <!--Lab 2 dynamic search results below-->
-    <div>
-        <p id="lab2"></p>
+    <div class="lab2">
+        <p class="flavour" id="lab2"></p>
         <ul id="searchResults">
             <!--see lab1.js-->
         </ul>
     </div>
     <!--Pokemon <ul> below-->
     <ul id="pokeList">
+        <br>
         <!--
         <li>
             <h2>#001 Bulbasaur</h2>

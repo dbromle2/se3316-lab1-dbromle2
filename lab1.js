@@ -21,15 +21,15 @@ pokeDex.push(new dexEntry("007", "Squirtle", "7.png", "When it retracts its long
 pokeDex.push(new dexEntry("008", "Wartortle", "8.png", "It is recognized as a symbol of longevity. If its shell has algae on it, that Wartortle is very old.", "Water", ""));
 pokeDex.push(new dexEntry("009", "Blastoise", "9.png", "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.", "Water", ""));
 pokeDex.push(new dexEntry("010", "Caterpie", "10.png", "For protection, it releases a horrible stench from the antenna on its head to drive away enemies.", "Bug", ""));
-pokeDex.push(new dexEntry("01", "Metapod", "11.png", "It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack.", "Bug", ""));
-pokeDex.push(new dexEntry("01", "Butterfree", "12.png", "In battle, it flaps its wings at great speed to release highly toxic dust into the air.", "Bug", "Flying"));
-pokeDex.push(new dexEntry("01", "Weedle", "13.png", "Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.", "Bug", "Poison"));
-pokeDex.push(new dexEntry("01", "Kakuna", "14.png", "Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.", "Bug", "Poison"));
-pokeDex.push(new dexEntry("01", "Beedrill", "15.png", "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.", "Bug", "Poison"));
-pokeDex.push(new dexEntry("01", "Pidgey", "16.png", "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.", "Normal", "Flying"));
-pokeDex.push(new dexEntry("01", "Pidgeotto", "17.png", "This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.", "Normal", "Flying"));
-pokeDex.push(new dexEntry("01", "Pidgeot", "18.png", "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.", "Normal", "Flying"));
-pokeDex.push(new dexEntry("01", "Rattata", "19.png", "Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.", "Normal", ""));
+pokeDex.push(new dexEntry("011", "Metapod", "11.png", "It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack.", "Bug", ""));
+pokeDex.push(new dexEntry("012", "Butterfree", "12.png", "In battle, it flaps its wings at great speed to release highly toxic dust into the air.", "Bug", "Flying"));
+pokeDex.push(new dexEntry("013", "Weedle", "13.png", "Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("014", "Kakuna", "14.png", "Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("015", "Beedrill", "15.png", "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.", "Bug", "Poison"));
+pokeDex.push(new dexEntry("016", "Pidgey", "16.png", "Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("017", "Pidgeotto", "17.png", "This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("018", "Pidgeot", "18.png", "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.", "Normal", "Flying"));
+pokeDex.push(new dexEntry("019", "Rattata", "19.png", "Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.", "Normal", ""));
 pokeDex.push(new dexEntry("020", "Raticate", "20.png", "Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.", "Normal", ""));
 
 

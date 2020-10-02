@@ -43,7 +43,8 @@ li{
     border: 2px solid rgb(255, 207, 207);
     margin: 4px;
     max-width: auto;
-    flex: 1 0 25%
+    flex: 1 0 25%;
+    background-color: #fdfdfd;
 }
 
 h1{
@@ -128,4 +129,15 @@ td.Normal{
     border: 1px solid whitesmoke;
     /* color: black; */
     background-color: grey;
+}
+
+/* lab2 search results */
+div.lab2{
+    background-color: #e5e5e5;
+    margin-bottom: 20px;
+}
+
+p.flavour{
+    font-weight: bold;
+    font-size: 20px;
 }
