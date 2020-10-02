@@ -38,33 +38,49 @@ var pokeNumbers = [" 001", " 002", " 003", " 004", " 005", " 006", " 007", " 008
                     " 011", " 012", " 013", " 014", " 015", " 016", " 017", " 018", " 019", " 020"];
 var pokeNames = [" Bulbasaur", " Ivysaur", " Venusaur", " Charmander", " Charmeleon", " Charizard", " Squirtle", " Wartortle", " Blastoise", " Caterpie", 
                     " Metapod", " Butterfree", " Weedle", " Kakuna", " Beedrill", " Pidgey", " Pidgeotto", " Pidgeot", " Rattata", " Raticate"];
-var pokeImg = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png",
-                "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png", "18.png", "19.png", "20.png"];
+
 var pokemon = [];
 for (i=0; i<20; i++){
-    pokemon[i] = pokeNumbers[i]+pokeNames[i]+pokeImg[i];
+    pokemon[i] = pokeNumbers[i]+pokeNames[i];
 }
 
-// function pageInit(){
-//     var uList = document.getElementById("pokeList");
-//     for (i in pokemon){
-//         var lItem = document.createElement("li");
-//         var lNum = document.createElement("h2");
-//         lNum.innerHTML = ("#"+pokeDex[i].Numbers);
-//         var lName = document.createElement("h2");
-//         lName.innerHTML = pokeDex[i].Names;
-//         var lImg = document.createElement("img");
-//         lImg.setAttribute("src", pokeDex[i].Img);
-//         var lDesc = document.createElement("p");
-//         lDesc.innerHTML = pokeDex[i].Desc;
+//Populate the pokedex with entries on initial page load
+function pageInit(){
+    var uList = document.getElementById("pokeList");
+    for (i in pokemon){
+        //Allocating all information from the pokeDex dexEntry objects
+        var lItem = document.createElement("li");
+        var lNum = document.createElement("h2");
+        lNum.innerHTML = ("#"+pokeDex[i].Numbers);
+        var lName = document.createElement("h2");
+        lName.innerHTML = pokeDex[i].Names;
+        var lImg = document.createElement("img");
+        lImg.setAttribute("src", pokeDex[i].Img);
+        var lDesc = document.createElement("p");
+        lDesc.innerHTML = pokeDex[i].Desc;
+        var lTable = document.createElement("table");
+        var lTableTr = document.createElement("tr");
+        var lTableTd1 = document.createElement("td");
+        lTableTd1.className = pokeDex[i].Type1;
+        lTableTd1.innerHTML = pokeDex[i].Type1;
+        var lTableTd2 = document.createElement("td");
+        lTableTd2.className = pokeDex[i].Type2;
+        lTableTd2.innerHTML = pokeDex[i].Type2;
 
-//         lItem.appendChild(lNum);
-//         lItem.appendChild(lName);
-//         lItem.appendChild(lImg);
-//         lItem.appendChild(lDesc);
-//         uList.appendChild(lItem);
-//     }
-// }
+
+        //Appending all information to the HTML
+        lItem.appendChild(lNum);
+        lItem.appendChild(lName);
+        lItem.appendChild(lImg);
+        lItem.appendChild(lDesc);
+        lTableTr.appendChild(lTableTd1);
+        lTableTr.appendChild(lTableTd2);
+        lTable.appendChild(lTableTr);
+        lItem.appendChild(lTable);
+
+        uList.appendChild(lItem);
+    }
+}
 
 //Function to search the pokedex by pokemon number using the number input by the user
 function searchNum(id){

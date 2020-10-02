@@ -80,7 +80,7 @@ ul.Megas p{
 }
 
 /* Pokemon Type style */
-tr td > p{
+td{
     width: 100px;
     text-align: center;
     font-family: monospace;
