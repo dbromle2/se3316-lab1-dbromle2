@@ -56,6 +56,7 @@ function pageInit(){
         lName.innerHTML = pokeDex[i].Names;
         var lImg = document.createElement("img");
         lImg.setAttribute("src", pokeDex[i].Img);
+        lImg.setAttribute("alt", pokeDex[i].Names);
         var lDesc = document.createElement("p");
         lDesc.innerHTML = pokeDex[i].Desc;
         var lTable = document.createElement("table");
@@ -135,92 +136,100 @@ function searchName(id){
 }
 
 function searchDex(query, varType){
-    //declarations
-    var hitCounter = 0;
-    var hits = [];
-    var printouts = [];
+    var emptyCheck = document.getElementById("searchboxName").value;
+    if (emptyCheck == ""){
+        while(searchList.hasChildNodes()){
+            searchList.removeChild(searchList.firstChild);
+        }
+    } else {
+        //declarations
+        var hitCounter = 0;
+        var hits = [];
+        var printouts = [];
 
-    //if varType is high, search by pokedex number
-    if (varType){
-        for (var i in pokeNumbers){
-            if (hitCounter <5){
-                if (pokeNumbers[i].indexOf(query) > -1){
-                    hits.push(i);
-                    hitCounter++;
+        //if varType is high, search by pokedex number
+        if (varType){
+            for (var i in pokeNumbers){
+                if (hitCounter < 20){
+                    if (pokeNumbers[i].indexOf(query) > -1){
+                        hits.push(i);
+                        hitCounter++;
+                    }
+                }
+            }
+
+        //if varType is low, search by pokedex name
+        } else {
+            for (var i in pokeNames){
+                if (hitCounter < 20){
+                    if (pokeNames[i].indexOf(query) > -1){
+                        hits.push(i);
+                        hitCounter++;
+                    }
                 }
             }
         }
+        /*Legacy search printout from lab1
+        //translate the hits array of indices into the printout num+name 
+        // if (hitCounter > 0){
+        //     for (var i in hits){
+        //         printouts.push(pokemon[hits[i]]);
+        //     }
+        //     alert("Is this what you're looking for?\n\n"+ printouts);
+        // } else alert("No matches found!");
+        */
 
-    //if varType is low, search by pokedex name
-    } else {
-        for (var i in pokeNames){
-            if (hitCounter < 5){
-                if (pokeNames[i].indexOf(query) > -1){
-                    hits.push(i);
-                    hitCounter++;
-                }
+        //populate the search results list
+        var pFlavour = document.getElementById("lab2");
+        var searchList = document.getElementById("searchResults");
+        var br = document.createElement("br");
+
+        while(searchList.hasChildNodes()){
+            searchList.removeChild(searchList.firstChild);
+        }
+        if (hitCounter > 0){
+            pFlavour.innerHTML = "Is this what you're looking for?\n\n";
+            pFlavour.appendChild(br);
+            //Reusing the code for the onLoad pageInit() function
+            for (i in hits){
+                //Allocating all information from the pokeDex dexEntry objects
+                var searchLItem = document.createElement("li");
+                var searchLNum = document.createElement("h2");
+                searchLNum.innerHTML = ("#"+pokeDex[hits[i]].Numbers);
+                var searchLName = document.createElement("h2");
+                searchLName.innerHTML = pokeDex[hits[i]].Names;
+                var searchLImg = document.createElement("img");
+                searchLImg.setAttribute("src", pokeDex[hits[i]].Img);
+                searchLImg.setAttribute("alt", pokeDex[i].Names);
+                var searchLDesc = document.createElement("p");
+                searchLDesc.innerHTML = pokeDex[hits[i]].Desc;
+                var searchLTable = document.createElement("table");
+                var searchLTableTr = document.createElement("tr");
+                var searchLTableTd1 = document.createElement("td");
+                searchLTableTd1.className = pokeDex[hits[i]].Type1;
+                searchLTableTd1.innerHTML = pokeDex[hits[i]].Type1;
+                var searchLTableTd2 = document.createElement("td");
+                searchLTableTd2.className = pokeDex[hits[i]].Type2;
+                searchLTableTd2.innerHTML = pokeDex[hits[i]].Type2;
+
+
+                //Appending all information to the HTML
+                searchLItem.appendChild(searchLNum);
+                searchLItem.appendChild(searchLName);
+                searchLItem.appendChild(searchLImg);
+                searchLItem.appendChild(searchLDesc);
+                searchLTableTr.appendChild(searchLTableTd1);
+                searchLTableTr.appendChild(searchLTableTd2);
+                searchLTable.appendChild(searchLTableTr);
+                searchLItem.appendChild(searchLTable);
+
+                //Final step add the newly made <li> to the existing <ul>
+                searchList.appendChild(searchLItem);
             }
+        //if no matches, alert the user
+        } else {
+            pFlavour.innerHTML = "No matches found!";
+            pFlavour.appendChild(br);
         }
-    }
-    /*Legacy search printout from lab1
-    //translate the hits array of indices into the printout num+name 
-    // if (hitCounter > 0){
-    //     for (var i in hits){
-    //         printouts.push(pokemon[hits[i]]);
-    //     }
-    //     alert("Is this what you're looking for?\n\n"+ printouts);
-    // } else alert("No matches found!");
-    */
-
-    //populate the search results list
-    var pFlavour = document.getElementById("lab2");
-    var searchList = document.getElementById("searchResults");
-    var br = document.createElement("br");
-
-   while(searchList.hasChildNodes()){
-       searchList.removeChild(searchList.firstChild);
-   }
-
-    if (hitCounter > 0){
-        pFlavour.innerHTML = "Is this what you're looking for?\n\n";
-        pFlavour.appendChild(br);
-        //Reusing the code for the onLoad pageInit() function
-        for (i in hits){
-            //Allocating all information from the pokeDex dexEntry objects
-            var searchLItem = document.createElement("li");
-            var searchLNum = document.createElement("h2");
-            searchLNum.innerHTML = ("#"+pokeDex[hits[i]].Numbers);
-            var searchLName = document.createElement("h2");
-            searchLName.innerHTML = pokeDex[hits[i]].Names;
-            var searchLImg = document.createElement("img");
-            searchLImg.setAttribute("src", pokeDex[hits[i]].Img);
-            var searchLDesc = document.createElement("p");
-            searchLDesc.innerHTML = pokeDex[hits[i]].Desc;
-            var searchLTable = document.createElement("table");
-            var searchLTableTr = document.createElement("tr");
-            var searchLTableTd1 = document.createElement("td");
-            searchLTableTd1.className = pokeDex[hits[i]].Type1;
-            searchLTableTd1.innerHTML = pokeDex[hits[i]].Type1;
-            var searchLTableTd2 = document.createElement("td");
-            searchLTableTd2.className = pokeDex[hits[i]].Type2;
-            searchLTableTd2.innerHTML = pokeDex[hits[i]].Type2;
-
-            //Appending all information to the HTML
-            searchLItem.appendChild(searchLNum);
-            searchLItem.appendChild(searchLName);
-            searchLItem.appendChild(searchLImg);
-            searchLItem.appendChild(searchLDesc);
-            searchLTableTr.appendChild(searchLTableTd1);
-            searchLTableTr.appendChild(searchLTableTd2);
-            searchLTable.appendChild(searchLTableTr);
-            searchLItem.appendChild(searchLTable);
-
-            //Final step add the newly made <li> to the existing <ul>
-            searchList.appendChild(searchLItem);
-        }
-    //if no matches, alert the user
-    } else {
-        pFlavour.innerHTML = "No matches found!";
-        pFlavour.appendChild(br);
     }
 }

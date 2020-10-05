@@ -6,7 +6,7 @@
 <meta name="description" content="Lab1">
 <meta name="author" content="dbromle2">
 <link rel="stylesheet" href="lab1.css">
-<script type='text/javascript' src='lab1.js'></script>
+<script src='lab1.js'></script>
 </head>
 <body onLoad="pageInit()">
 <!-- Place your content here -->
@@ -26,290 +26,14 @@
         </ul>
     </div>
     <!--Pokemon <ul> below-->
-    <ul id="pokeList">
-        <br>
-        <!--
-        <li>
-            <h2>#001 Bulbasaur</h2>
-            <img src="1.png">
-            <p>There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.</p>
-            <table>
-                <tr>
-                    <td class="Grass">
-                        <p>Grass</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#002 Ivysaur</h2>
-            <img src="2.png">
-            <p>When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.</p>
-            <table>
-                <tr>
-                    <td class="Grass">
-                        <p>Grass</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#003 Venusaur</h2>
-            <img src="3.png">
-            <p>Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.</p>
-            <table>
-                <tr>
-                    <td class="Grass">
-                        <p>Grass</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#004 Charmander</h2>
-            <img src="4.png">
-            <p>It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.</p>
-            <table>
-                <tr>
-                    <td class="Fire">
-                        <p>Fire</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#005 Charmeleon</h2>
-            <img src="5.png">
-            <p>It has a barbaric nature. In battle, it whips its fiery tail around and slashes away with sharp claws.</p>
-            <table>
-                <tr>
-                    <td class="Fire">
-                        <p>Fire</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#006 Charizard</h2>
-            <img src="6.png">
-            <p>It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.</p>
-            <table>
-                <tr>
-                    <td class="Fire">
-                        <p>Fire</p>
-                    </td>
-                    <td class="Flying">
-                        <p>Flying</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#007 Squirtle</h2>
-            <img src="7.png">
-            <p>When it retracts its long neck into its shell, it squirts out water with vigorous force.</p>
-            <table>
-                <tr>
-                    <td class="Water">
-                        <p>Water</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#008 Wartortle</h2>
-            <img src="8.png">
-            <p>It is recognized as a symbol of longevity. If its shell has algae on it, that Wartortle is very old.</p>
-            <table>
-                <tr>
-                    <td class="Water">
-                        <p>Water</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#009 Blastoise</h2>
-            <img src="9.png">
-            <p>It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.</p>
-            <table>
-                <tr>
-                    <td class="Water">
-                        <p>Water</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#010 Caterpie</h2>
-            <img src="10.png">
-            <p>For protection, it releases a horrible stench from the antenna on its head to drive away enemies.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#011 Metapod</h2>
-            <img src="11.png">
-            <p>It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#012 Butterfree</h2>
-            <img src="12.png">
-            <p>In battle, it flaps its wings at great speed to release highly toxic dust into the air.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                    <td class="Flying">
-                        <p>Flying</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#013 Weedle</h2>
-            <img src="13.png">
-            <p>Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#014 Kakuna</h2>
-            <img src="14.png">
-            <p>Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#015 Beedrill</h2>
-            <img src="15.png">
-            <p>It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.</p>
-            <table>
-                <tr>
-                    <td class="Bug">
-                        <p>Bug</p>
-                    </td>
-                    <td class="Poison">
-                        <p>Poison</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#016 Pidgey</h2>
-            <img src="16.png">
-            <p>Very docile. If attacked, it will often kick up sand to protect itself rather than fight back.</p>
-            <table>
-                <tr>
-                    <td class="Normal">
-                        <p>Normal</p>
-                    </td>
-                    <td class="Flying">
-                        <p>Flying</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#017 Pidgeotto</h2>
-            <img src="17.png">
-            <p>This Pokémon is full of vitality. It constantly flies around its large territory in search of prey.</p>
-            <table>
-                <tr>
-                    <td class="Normal">
-                        <p>Normal</p>
-                    </td>
-                    <td class="Flying">
-                        <p>Flying</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#018 Pidgeot</h2>
-            <img src="18.png">
-            <p>This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.</p>
-            <table>
-                <tr>
-                    <td class="Normal">
-                        <p>Normal</p>
-                    </td>
-                    <td class="Flying">
-                        <p>Flying</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#019 Rattata</h2>
-            <img src="19.png">
-            <p>Will chew on anything with its fangs. If you see one, you can be certain that 40 more live in the area.</p>
-            <table>
-                <tr>
-                    <td class="Normal">
-                        <p>Normal</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            <h2>#020 Raticate</h2>
-            <img src="20.png">
-            <p>Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey.</p>
-            <table>
-                <tr>
-                    <td class="Normal">
-                        <p>Normal</p>
-                    </td>
-                </tr>
-            </table>
-        </li>
-    -->
-    </ul>
+    <br>
+    <ul id="pokeList"></ul>
     <br>
     <h2>Mega Evolutions</h2>
     <ul class="Megas">
         <li>
             <h3>Mega Charizard X</h3>
-            <img src="6-mega-x.png">
+            <img src="6-mega-x.png" alt="Mega Charizard X" />
             <table>
                 <tr>
                     <td class="Fire">
@@ -323,7 +47,7 @@
         </li>
         <li>
             <h3>Mega Charizard Y</h3>
-            <img src="6-mega-y.png">
+            <img src="6-mega-y.png" alt="Mega Charizard Y" />
             <table>
                 <tr>
                     <td class="Fire">
@@ -337,7 +61,7 @@
         </li>
         <li>
             <h3>Mega Blastoise</h3>
-            <img src="9-mega.png">
+            <img src="9-mega.png" alt="Mega Blastoise" />
             <table>
                 <tr>
                     <td class="Water">
@@ -348,7 +72,7 @@
         </li>
         <li>
             <h3>Mega Beedrill</h3>
-            <img src="15-mega.png">
+            <img src="15-mega.png" alt="Mega Beedrill" />
             <table>
                 <tr>
                     <td class="Bug">
@@ -362,7 +86,7 @@
         </li>
         <li>
             <h3>Mega Pidgeot</h3>
-            <img src="18-mega.png">
+            <img src="18-mega.png" alt="Mega Pidgeot" />
             <table>
                 <tr>
                     <td class="Normal">
