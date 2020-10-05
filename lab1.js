@@ -136,11 +136,13 @@ function searchName(id){
 }
 
 function searchDex(query, varType){
-    var emptyCheck = document.getElementById("searchboxName").value;
-    if (emptyCheck == ""){
+    var searchList = document.getElementById("searchResults");
+    var lab2 = document.getElementById("lab2");
+    if (query == ""){
         while(searchList.hasChildNodes()){
             searchList.removeChild(searchList.firstChild);
         }
+        lab2.innerHTML = ("");
     } else {
         //declarations
         var hitCounter = 0;
@@ -181,7 +183,6 @@ function searchDex(query, varType){
 
         //populate the search results list
         var pFlavour = document.getElementById("lab2");
-        var searchList = document.getElementById("searchResults");
         var br = document.createElement("br");
 
         while(searchList.hasChildNodes()){
